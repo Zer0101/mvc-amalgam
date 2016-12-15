@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Adding trailing slash for directory requests.
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !^/www$
+    RewriteCond %{HTTP_HOST} !^www\.
+    RewriteRule ^(.+[^/])$ http://project.zero/$1/ [R=permanent]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # External redirection from www subdomain to non-www domain.
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteRule ^/?(.*) http://example.com/$1 [L,R=permanent]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Internal redirection to index.php for nonexistent URLs.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !\.(jpg|jpeg|png|gif)$
+    RewriteRule . /index.php [L,QSA]
+</IfModule>

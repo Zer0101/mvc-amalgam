@@ -1,0 +1,14 @@
+{
+    "name": "e_zero101/best-hmvc",
+    "description": "A simple micro-framework created for test purposes",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Zencenco",
+            "email": "e92zav@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
